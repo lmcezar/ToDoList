@@ -111,6 +111,35 @@ export const CountFinishedTasks = styled.div`
 
 export const ContainerTasks = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
-export const ItemTask = styled.div``;
+export const ItemTask = styled.div`
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 24px;
+  height: 100%;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+
+  p {
+    width: 100%;
+    padding-left: 12px;
+  }
+`;
+
+export const CheckTask = styled.button`
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+`;
+
+export const ItemTaskDone = styled.p`
+  text-decoration: line-through;
+`;
