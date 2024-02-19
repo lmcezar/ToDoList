@@ -142,4 +142,5 @@ export const CheckTask = styled.button`
 
 export const ItemTaskDone = styled.p`
   text-decoration: line-through;
+  color: var(--gray-300);
 `;

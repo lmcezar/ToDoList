@@ -25,46 +25,46 @@ import todoLogo from "./assets/todologo.png";
 import { PlusCircle, Circle, Trash, CheckCircle } from "@phosphor-icons/react";
 import { v4 as uuidv4 } from "uuid";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-interface IItemProps {
+interface ITask {
   id: string;
   content: string;
   isDone: boolean;
 }
 
 function App() {
-  const [tasks, setTasks] = useState<IItemProps[]>([]);
+  const [tasks, setTasks] = useState<ITask[]>([]);
+  const [inputText, setInputText] = useState("");
 
-  useEffect(() => {
+  const handleAddTask = () => {
     setTasks([
+      ...tasks,
       {
         id: uuidv4(),
-        content: "Tarefa 1",
+        content: inputText,
         isDone: false,
-      },
-      {
-        id: uuidv4(),
-        content: "Tarefa 2",
-        isDone: false,
-      },
-      {
-        id: uuidv4(),
-        content: "Tarefa 3",
-        isDone: false,
-      },
-      {
-        id: uuidv4(),
-        content: "Tarefa 4",
-        isDone: false,
-      },
-      {
-        id: uuidv4(),
-        content: "Tarefa 5",
-        isDone: true,
       },
     ]);
-  }, []);
+    setInputText("");
+  };
+
+  const handleDeleteTask = (id: string) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const handleCheckTask = (id: string) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, isDone: !task.isDone };
+      }
+      return { ...task };
+    });
+
+    setTasks(updatedTasks);
+  };
+
+  const countDone = tasks.filter((task) => task.isDone).length;
 
   return (
     <>
@@ -80,33 +80,42 @@ function App() {
         <Body>
           <ContainerBody>
             <Form>
-              <Input placeholder="Adicione uma nova tarefa" />
-              <AddTask>
+              <Input
+                onChange={(ev: React.ChangeEvent<HTMLInputElement>): void =>
+                  setInputText(ev.target.value)
+                }
+                value={inputText}
+                placeholder="Adicione uma nova tarefa"
+              />
+              <AddTask onClick={handleAddTask}>
                 <TextTask>Criar</TextTask> <PlusCircle size={16} />
               </AddTask>
             </Form>
 
             <ContainerCountTasks>
               <CreatedTasks>
-                Tarefas criadas <CountCreatedTasks>0</CountCreatedTasks>
+                Tarefas criadas{" "}
+                <CountCreatedTasks>{tasks.length}</CountCreatedTasks>
               </CreatedTasks>
               <FinishedTasks>
                 Tarefas Concluídas{" "}
-                <CountFinishedTasks>0 de {tasks.length}</CountFinishedTasks>
+                <CountFinishedTasks>
+                  {countDone} de {tasks.length}
+                </CountFinishedTasks>
               </FinishedTasks>
             </ContainerCountTasks>
 
             <ContainerTasks>
-              {/* <FlatList></FlatList> */}
               {tasks.map((item) =>
                 item.isDone ? (
                   <ItemTask>
                     <li key={item.id}>
-                      <CheckTask>
+                      <CheckTask onClick={() => handleCheckTask(item.id)}>
                         <CheckCircle weight="fill" color="#5E60CE" size={24} />
                       </CheckTask>
                       <ItemTaskDone>{item.content}</ItemTaskDone>
-                      <CheckTask>
+                      <ItemTaskDone>{item.id}</ItemTaskDone>
+                      <CheckTask onClick={() => handleDeleteTask(item.id)}>
                         <Trash color="#FFFFFF" />
                       </CheckTask>
                     </li>
@@ -114,12 +123,12 @@ function App() {
                 ) : (
                   <ItemTask>
                     <li key={item.id}>
-                      <CheckTask>
+                      <CheckTask onClick={() => handleCheckTask(item.id)}>
                         <Circle color="#4EA8DE" size={24} />
                       </CheckTask>
 
                       <p> {item.content}</p>
-                      <CheckTask>
+                      <CheckTask onClick={() => handleDeleteTask(item.id)}>
                         <Trash color="#FFFFFF" />
                       </CheckTask>
                     </li>
