@@ -1,27 +1,36 @@
-# React + TypeScript + Vite
+# ToDoList - React Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
-Currently, two official plugins are available:
+> O repositório no GitHub é parte de um desafio proposto pela Rocketseat em sua especialização em React. O desafio visa criar uma lista de tarefas utilizando React. Nesse desafio não foi pedido para utilizar nada além de React, porém para praticar e deixar de modo mais profissional, decidi utilizar em conjunto com TypeScript e como lib de UX Styled Components para poder melhorar a legibilidade do código para futuras implementações e sua performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💻 Pré-requisitos
 
-## Expanding the ESLint configuration
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Você instalou a versão mais recente do `node` ou no mínimo a versão LTS.
+- Certifique-se que tenha instalado o `npm` ou `yarn` na sua máquina.
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Instalando ToDoList
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+Para instalar o ToDoList, siga estas etapas:
+
+Windows:
+
+Para instalar as dependencias :
+
+```
+npm i
+yarn
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## ☕ Usando ToDoList
+
+Para usar o ToDoList, siga estas etapas:
+
+```
+npm run dev
+yarn dev
+```
+
+Rode o comando acima de acordo com o gerenciador de pacotes desejado.
