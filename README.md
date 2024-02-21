@@ -1,6 +1,10 @@
 # ToDoList - React Challenge
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+https://github.com/lmcezar/ToDoList/assets/3679709/91b5c904-1ef5-4e65-9c5e-7042a7b07798
+
+
 
 > O repositório no GitHub é parte de um desafio proposto pela Rocketseat em sua especialização em React. O desafio visa criar uma lista de tarefas utilizando React. Nesse desafio não foi pedido para utilizar nada além de React, porém para praticar e deixar de modo mais profissional, decidi utilizar em conjunto com TypeScript e como lib de UX Styled Components para poder melhorar a legibilidade do código para futuras implementações e sua performance.
 
