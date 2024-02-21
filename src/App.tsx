@@ -114,7 +114,6 @@ function App() {
                         <CheckCircle weight="fill" color="#5E60CE" size={24} />
                       </CheckTask>
                       <ItemTaskDone>{item.content}</ItemTaskDone>
-                      <ItemTaskDone>{item.id}</ItemTaskDone>
                       <CheckTask onClick={() => handleDeleteTask(item.id)}>
                         <Trash color="#FFFFFF" />
                       </CheckTask>
